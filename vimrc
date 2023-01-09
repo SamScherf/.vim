@@ -19,15 +19,18 @@ call plug#end()
 " General Vim Config
 set encoding=utf-8
 set number
-set spell
 set updatetime=100
 set modifiable
-
+set spell
+"
 " Tab = 4 spaces for python
 autocmd Filetype python setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Vim Colors
 colorscheme molokai
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 
 " Use terminal colors and bug fix
 set termguicolors
