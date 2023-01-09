@@ -1,6 +1,6 @@
 # .vim
 
-This repository contatins a simple stand-alone simple vim configuration. I use it for machines where I dont have root access and/or won't be using my full [dotfiles repository] (ttps://github.com/SamScherf/.config).
+This repository contatins a simple stand-alone simple vim configuration. I use it for machines where I dont have root access and/or won't be using my full [dotfiles repository](https://github.com/SamScherf/.config).
 
 ## Depdencies
 
