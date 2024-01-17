@@ -28,9 +28,10 @@ set updatetime=100
 set modifiable
 set spell
 
-" Tab = 4 spaces for python
+" Tab = 4 spaces for various file types
 autocmd Filetype python setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+autocmd Filetype cpp setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Vim Colors
 colorscheme molokai
