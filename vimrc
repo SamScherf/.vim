@@ -1,8 +1,8 @@
 " Start vim plug
 call plug#begin('~/.vim/plugged')
 
-" Highlighting syntatx
-Plug 'vim-syntastic/syntastic'
+" Linting
+Plug 'dense-analysis/ale'
 
 " Tab autocomplete
 Plug 'ervandew/supertab'
@@ -13,8 +13,13 @@ Plug 'Townk/vim-autoclose'
 " File browser
 Plug 'preservim/nerdtree'
 
-call plug#end()
+" Vimshell dependency
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
+" Simple Shell
+Plug 'shougo/vimshell.vim'
+
+call plug#end()
 
 " General Vim Config
 set encoding=utf-8
@@ -22,34 +27,31 @@ set number
 set updatetime=100
 set modifiable
 set spell
-"
+
 " Tab = 4 spaces for python
 autocmd Filetype python setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+autocmd Filetype c setlocal tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Vim Colors
 colorscheme molokai
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-
 " Use terminal colors and bug fix
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" Synastic Config
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" ALE keybinds
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" Synastic Extension config
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_plaintex_checkers = ["lacheck"]
+" ALE C++ config
+let g:ale_cpp_cc_options = '-std=c++20'
+let g:ale_cpp_clangtidy_options = '-std=c++20'
 
 " Nerdtree config
 map <C-n> :NERDTreeToggle<CR>
+
+" Vimshell config
+map <C-i> :VimShellTab<CR>
